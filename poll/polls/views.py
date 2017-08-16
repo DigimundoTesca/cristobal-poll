@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def poll(request):
+    template = 'poll.html'
+    return render(request, template, None)

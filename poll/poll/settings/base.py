@@ -41,10 +41,10 @@ ROOT_URLCONF = 'poll.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS':
+        'DIRS': [
             os.path.join(BASE_DIR, 'templates/'),
         ],
-        'APP_DIRS': True,
+        # 'APP_DIRS': True,
         'OPTIONS': {
             'debug': True,
             'loaders': [
@@ -61,7 +61,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
             ],
-
+        }
     },
 ]
 
@@ -103,7 +103,6 @@ USE_TZ = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, '../staticfiles')
