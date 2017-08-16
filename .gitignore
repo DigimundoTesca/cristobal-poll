@@ -121,8 +121,8 @@ ENV/
 tags
 
 # Django Migrations
-poll/migrations/*
-!poll/migrations/__init__.py
+polls/migrations/*
+!polls/migrations/__init__.py
 
 # Django settings
 staticfiles/
