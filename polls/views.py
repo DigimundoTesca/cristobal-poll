@@ -12,4 +12,5 @@ class CreatePoll(CreateView):
         return reverse('polls:thanks')
 
 def thanks(request):
-    return render(request, template='thanks.html', context=None)
+    template = 'thanks.html'
+    return render(request, template, context=None)

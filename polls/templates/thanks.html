@@ -8,16 +8,32 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <style media="screen">
+    #main-container {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    #metamundo-banner {
+      max-height: 200px;
+    }
+    .container-banner {
+      display: flex;
+      justify-content: center;
+    }
+    .invalid-feedback  {
+      display: initial;
+    }
+  </style>
   <title>Metamundo</title>
 </head>
 <body>
   <!-- Image and text -->
   <nav class="navbar navbar-dark bg-dark">
-    <div class="container" id="main-container">
+    <div class="container">
       <a class="navbar-brand" href="{% url 'polls:poll' %}">Metamundo Online</a>
     </div>
   </nav>
-  <div class="container">
+  <div class="container" id="main-container">
     <div class="container-banner">
       <img id="metamundo-banner" src="{% static 'images/logo-meta.png' %}" class="img-fluid" alt="">
     </div>

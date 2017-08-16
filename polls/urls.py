@@ -7,5 +7,5 @@ app_name = 'polls'
 
 urlpatterns = [
     url(r'^$', views.CreatePoll.as_view(), name='poll'),
-    url(r'^$', views.thanks, name='thanks'),
+    url(r'^gracias/$', views.thanks, name='thanks'),
 ]

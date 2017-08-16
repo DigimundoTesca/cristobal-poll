@@ -7,11 +7,13 @@ class Poll(models.Model):
         message="Debe ingresar un número telefónico de 10 dígitos.",
     )
 
-    name = models.CharField(max_length=90, default='')
-    last_name = models.CharField(max_length=190, default='')
-    last_module = models.CharField(max_length=120, default='')
-    email = models.EmailField(default='', unique=True)
+    name = models.CharField(max_length=90, default='', blank=False, null=False)
+    last_name = models.CharField(max_length=190, default='', blank=False, null=False)
+    last_module = models.CharField(max_length=120, default='', blank=False, null=False)
+    email = models.EmailField(default='', unique=True, blank=False, null=False)
     phone_number = models.CharField(
+        blank=False,
+        null=False,
         unique= True,
         max_length=10,
         validators=[phone_regex],
