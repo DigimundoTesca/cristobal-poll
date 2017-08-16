@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Poll
+
+@admin.register(Poll)
+class PollAdmin(admin.ModelAdmin):
+    list_display = ('name', 'last_name', 'email', 'last_module', 'phone_number')

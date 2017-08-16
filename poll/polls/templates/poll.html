@@ -8,22 +8,147 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="http://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/sticky-footer-navbar.css">
   <title>Metamundo</title>
+  <style media="screen">
+    #main-container {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    #metamundo-banner {
+      max-height: 200px;
+    }
+    .container-banner {
+      display: flex;
+      justify-content: center;
+    }
+    .invalid-feedback  {
+      display: initial;
+    }
+  </style>
 </head>
 <body>
   <!-- Image and text -->
-  <nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="{% static 'images/logo-meta.png' %}" width="100" height="30" class="d-inline-block align-top" alt="">
-      </a>
+      <a class="navbar-brand" href="{% url 'polls:poll' %}">Metamundo Online</a>
     </div>
   </nav>
-  <div class="container">
-
-
+  <div class="container" id="main-container">
+    <div class="container-banner">
+      <img id="metamundo-banner" src="{% static 'images/logo-meta.png' %}" class="img-fluid" alt="">
+    </div>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input id="name"
+          class="form-control {% if form.name.errors %}is-invalid{% endif %}"
+          type="text"
+          name="name"
+          value="{%if form.name.value %}{{form.name.value}}{% endif %}"
+          maxlength="{{form.name.field.max_length}}"
+          placeholder="Nombre(s)"
+          required/>
+          {% if form.name.errors %}
+          <div class="invalid-feedback">
+            <ul>
+              {% for error in form.name.errors %}
+              <li>{{error}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+      </div>
+      <div class="form-group">
+        <label for="lastName">Apellidos</label>
+        <input id="lastName"
+          class="form-control {% if form.last_name.errors %}is-invalid{% endif %}"
+          type="text"
+          name="last_name"
+          value="{%if form.last_name.value %}{{form.last_name.value}}{% endif %}"
+          maxlength="{{form.last_name.field.max_length}}"
+          placeholder="Apellido Materno y Paterno"
+          required/>
+          {% if form.last_name.errors %}
+          <div class="invalid-feedback">
+            <ul>
+              {% for error in form.last_name.errors %}
+              <li>{{error}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+      </div>
+      <div class="form-group">
+        <label for="lastModule">Último modulo</label>
+        <input id="lastModule"
+          class="form-control {% if form.last_module.errors %}is-invalid{% endif %}"
+          type="text"
+          name="last_module"
+          value="{%if form.last_module.value %}{{form.last_module.value}}{% endif %}"
+          maxlength="{{form.last_module.field.max_length}}"
+          placeholder="Último módulo cursado online en Metamundo"
+          required/>
+          {% if form.last_module.errors %}
+          <div class="invalid-feedback">
+            <ul>
+              {% for error in form.last_module.errors %}
+              <li>{{error}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email"
+          class="form-control {% if form.email.errors %}is-invalid{% endif %}"
+          type="email"
+          name="email"
+          value="{%if form.email.value %}{{form.email.value}}{% endif %}"
+          placeholder="Email"
+          required/>
+          {% if form.email.errors %}
+          <div class="invalid-feedback">
+            <ul>
+              {% for error in form.email.errors %}
+              <li>{{error}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Teléfono</label>
+        <input id="phoneNumber"
+          class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}"
+          type="text"
+          name="phone_number"
+          value="{%if form.phone_number.value %}{{form.phone_number.value}}{% endif %}"
+          maxlength="{{form.phone_number.field.max_length}}"
+          placeholder="Número de Teléfono (De preferencia con Whatsapp)"
+          required/>
+          {% if form.phone_number.errors %}
+          <div class="invalid-feedback">
+            <ul>
+              {% for error in form.phone_number.errors %}
+              <li>{{error}}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+      </div>
+      <button class='btn btn-primary btn-block' type="submit">Enviar</button>
+    </form>
   </div>
-
+  <footer class="footer">
+    <div class="container ">
+      <span class="text-muted">
+        © Metamundo 2017
+      </span>
+    </div>
+  </footer>
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

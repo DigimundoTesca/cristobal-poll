@@ -6,6 +6,6 @@ from . import views
 app_name = 'polls'
 
 urlpatterns = [
-    # Diners pin
-    url(r'^$', views.poll, name='poll'),
+    url(r'^$', views.CreatePoll.as_view(), name='poll'),
+    url(r'^$', views.thanks, name='thanks'),
 ]

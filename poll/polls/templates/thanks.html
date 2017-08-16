@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <title>Metamundo</title>
+</head>
+<body>
+  <!-- Image and text -->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container" id="main-container">
+      <a class="navbar-brand" href="{% url 'polls:poll' %}">Metamundo Online</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="container-banner">
+      <img id="metamundo-banner" src="{% static 'images/logo-meta.png' %}" class="img-fluid" alt="">
+    </div>
+    <div class="jumbotron">
+      <h1>¡Gracias!</h1>
+      <p class="lead">
+        Tus datos han sido enviados exitosamente.
+      </p>
+      <p>
+        <a href="{% url 'polls:poll' %}">Regresar</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
